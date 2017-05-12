@@ -1,6 +1,10 @@
 # V.js
 By Joel Dies
 
+V.js was built to help with prototyping. Practcal use for production isnt what this library is meant for. Rather it is designed in a way to help with scaffolding and prototyping. This was built for when you do not have a backend template engine or you are not wanting to have to configure a bunch of javascript libaries. Its simple, effecient and requires no knowledge other than HTML so this is great for people who are not developers, or for developers who want to quickly prototype a project.
+
+With that this can also be used to pass parameters to javascript and use them in code without to much effort, and you can access the variables with little effort using the built in functions.
+
 [Demo](http://codepen.io/phreaknation/pen/XRgZNX?editors=1000)
 
 
@@ -41,6 +45,14 @@ _ | @param {string} [ns] - Namespace of the variable
 render(el, v) | Renders an element with the variable data.
 _ | @param {node} [el] - Element to render to.
 _ | @param {object} v - Var data in its proper format.
+
+
+
+## Supported types
+This is a current list of supported type. Over time I will be adding support for other types.
+* Boolean
+* Number
+* String
 
 
 
