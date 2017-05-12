@@ -26,7 +26,7 @@ data-ns | {string} |  | Allows simple namespacing of variables.
 data-set | {string} |  | REQUIRED. Name to save the value under.
 data-get | {string} |  | REQUIRED. The value to return. Can, and must be used in conjunction with data-ns if data-ns was used to set the value.
 data-type | {string} | string | Type of object to save as. Options are 'string', 'number', 'boolean'
-data-value | {string|number|boolean} |  | Value to save. Not required.
+data-value | {string-number-boolean} |  | Value to save. Not required.
 
 
 
