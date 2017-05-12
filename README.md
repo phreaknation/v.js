@@ -1,9 +1,7 @@
-# Dialog Manager
+# V.js
 By Joel Dies
 
 [Demo](http://codepen.io/phreaknation/pen/XRgZNX?editors=1000)
-
-[Video](https://youtu.be/0RNYi8aXYG4)
 
 
 **This is not 100% documented but is on its way to being 100% documented.**
