@@ -1,37 +1,92 @@
-## Welcome to GitHub Pages
+# Dialog Manager
+By Joel Dies
 
-You can use the [editor on GitHub](https://github.com/phreaknation/v/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+[Demo](http://codepen.io/phreaknation/pen/XRgZNX?editors=1000)
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+[Video](https://youtu.be/0RNYi8aXYG4)
 
-### Markdown
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+**This is not 100% documented but is on its way to being 100% documented.**
 
-```markdown
-Syntax highlighted code block
+Help support these efforts by becoming a [Patreon](https://www.patreon.com/diesoft)
 
-# Header 1
-## Header 2
-### Header 3
+## Including in a project
+Include the script into your html page.
 
-- Bulleted
-- List
 
-1. Numbered
-2. List
 
-**Bold** and _Italic_ and `Code` text
+## Options:
 
-[Link](url) and ![Image](src)
+Term | Object Type | Default Value | Definition
+--- | --- | --- | ---
+data-addTypeClass | {boolean} |  | Overrides the addTypeClass value on a single variable display element.
+data-ns | {string} |  | Allows simple namespacing of variables.
+data-set | {string} |  | REQUIRED. Name to save the value under.
+data-get | {string} |  | REQUIRED. The value to return. Can, and must be used in conjunction with data-ns if data-ns was used to set the value.
+data-type | {string} | string | Type of object to save as. Options are 'string', 'number', 'boolean'
+data-value | {string|number|boolean} |  | Value to save. Not required.
+
+
+
+## Methods:
+Term | Definition
+--- | ---
+set(name, value, type, ns, el) | Sets a variable.
+_ | @param {string} name - Name of the varible to set.
+_ | @param {string} value - Value to be set.
+_ | @param {(boolean|number|string)} [type=string] - description
+_ | @param {string} [ns] - Namespace of the variable
+_ | @param {node} [el] - Element to render to.
+get(name, ns) | Gets a set variable.
+_ | @param {string} name - Name of the varible to set.
+_ | @param {string} [ns] - Namespace of the variable
+render(el, v) | Renders an element with the variable data.
+_ | @param {node} [el] - Element to render to.
+_ | @param {object} v - Var data in its proper format.
+
+
+
+## Example:
+
+### Verbose errors
+If you wish to have loud errors I have provided some css for just that
+```css
+.v.error {
+  background-color: #f0f000;
+  border: 2px solid #f00000;
+  color: #f00000;
+  padding: 2px 4px;
+}
+```
+### Hide errors
+If you wish to not show any errors, this would be the css needed.
+```css
+.v.error {
+  display: none;
+}
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+### Setting variables
 
-### Jekyll Themes
+```html
+<var data-ns="hello" data-set="world" data-type="string" data-value="Hello World"></var>
+<var data-ns="myvars" data-set="test" data-type="number" data-value="12345"></var>
+<var data-ns="asdf" data-set="string" data-value="This value is"></var>
+<var data-ns="asdf" data-set="result" data-type="boolean" data-value="false"></var>
+```
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/phreaknation/v/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+### Displaying variables
 
-### Support or Contact
+```html
+<span data-ns="hello" data-get="world"></span>
 
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+<div data-ns="myvars" data-get="test"></div>
+
+<div>
+  <span data-ns="asdf" data-get="string"></span>: 
+  <span data-ns="asdf" data-get="result"></span>.
+</div>
+
+<!-- This will cause an error to be displayed -->
+<div data-get="err"></div>
+```
